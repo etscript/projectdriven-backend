@@ -1,0 +1,28 @@
+ * Serving Flask app "app.factory" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 620-098-861
+ * Detected change in '/root/dataset-back/app/utils/wxapp.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 620-098-861
+127.0.0.1 - - [27/Mar/2020 18:00:01] "GET / HTTP/1.0" 404 -
+127.0.0.1 - - [27/Mar/2020 18:00:20] "GET / HTTP/1.0" 404 -
+127.0.0.1 - - [27/Mar/2020 18:04:03] "GET / HTTP/1.0" 404 -
+127.0.0.1 - - [27/Mar/2020 23:59:46] "GET / HTTP/1.0" 404 -
+127.0.0.1 - - [28/Mar/2020 00:00:09] "GET / HTTP/1.0" 404 -
+127.0.0.1 - - [28/Mar/2020 11:23:30] "GET / HTTP/1.0" 404 -
+127.0.0.1 - - [28/Mar/2020 11:23:46] "GET / HTTP/1.0" 404 -
+ * Detected change in '/root/dataset-back/run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 620-098-861
+ * Detected change in '/root/dataset-back/run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 620-098-861
