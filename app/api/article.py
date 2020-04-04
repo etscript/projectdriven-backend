@@ -13,12 +13,6 @@ import os
 bp = Blueprint("article", __name__, url_prefix='/api')
 logger = logging.getLogger(__name__)
 
-up = upyun.UpYun('project-driven', 'projectdriven', 'PNorIxIZ9AA0OeOrzQnPwwCH1jn4XYu7', timeout=30, endpoint=upyun.ED_AUTO)
-def upload_img(img):
-    headers = { 'x-gmkerl-rotate': '180' }
-    with open(img, 'rb') as f:
-        res = up.put(img.split(os.sep)[-1], f, checksum=True, headers=headers)
-
 @route(bp, '/ad/', methods=['POST'])
 def get_ad():
     ad = [
