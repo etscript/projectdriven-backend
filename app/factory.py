@@ -10,6 +10,7 @@ from app.celery import celery_app
 from app.utils.core import JSONEncoder, db, scheduler
 from app.api.router import router
 from flask_migrate import Migrate, MigrateCommand
+from elasticsearch import Elasticsearch
 migrate = Migrate()
 
 def create_app(config_name, config_path=None):
@@ -62,6 +63,14 @@ def create_app(config_name, config_path=None):
     with open(app.config['RESPONSE_MESSAGE'], 'r', encoding='utf-8') as f:
         msg = yaml.safe_load(f.read())
         app.config.update(msg)
+    
+    # Elasticsearch全文检索
+    if app.config['ELASTICSEARCH_USER'] and app.config['ELASTICSEARCH_PASSWORD']:
+        app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']], http_auth=app.config['ELASTICSEARCH_USER']+':'+app.config['ELASTICSEARCH_PASSWORD']) \
+            if app.config['ELASTICSEARCH_URL'] else None
+    else:
+        app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+            if app.config['ELASTICSEARCH_URL'] else None
 
     return app
 

@@ -37,7 +37,6 @@ def do_delete_image(img):
 def upload_image():
     '''上传图片'''
     data = request.files["image"].read()
-    print(data)
     if not data:
         code = ResponseCode.InvalidParameter
         data = 'You must post JSON data.'
