@@ -4,6 +4,7 @@ from app.api.tianyancha import bp as tianyancha
 from app.api.wxusers import bp as wxusers
 from app.api.article import bp as article
 from app.api.webinfo import bp as webinfo
+from app.api.image import bp as image
 
 router = [
     bp_api_test,  # 接口测试
