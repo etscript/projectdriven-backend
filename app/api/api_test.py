@@ -98,17 +98,20 @@ def check_login():
     if isFlagExist(wechat_flag) and len(rq_dict) != 0:
         code = ResponseCode.Success
         data = {"result":"yes", "user":isFlagExist(wechat_flag)}
+        status = "success"
     elif len(rq_dict) == 0:
         code = ResponseCode.InvalidParameter
         data = None
+        status = "fail"
     else:
         code = ResponseCode.NoResourceFound
-        data = {"result":"no"}
+        data = {"result":"no", "message":"二维码等待扫描中"}
+        status = "wait"
 
-    res.update(code=code, data=data)
+    res.update(code=code, data=data, status=status)
     return res.data
 
-@route(bp, '/logout/',methods=['PUT'])
+@route(bp, '/logout/',methods=['POST'])
 @login_required
 def check_logout():
     res = ResMsg()
