@@ -13,4 +13,5 @@ router = [
     tianyancha,
     article,
     webinfo,
+    image,
 ]

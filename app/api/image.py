@@ -8,7 +8,7 @@ import json
 import upyun
 import os
 from datetime import datetime
-bp = Blueprint("article", __name__, url_prefix='/api')
+bp = Blueprint("image", __name__, url_prefix='/api')
 logger = logging.getLogger(__name__)
 
 up = upyun.UpYun('project-driven', 'projectdriven', 'PNorIxIZ9AA0OeOrzQnPwwCH1jn4XYu7', timeout=30, endpoint=upyun.ED_AUTO)
