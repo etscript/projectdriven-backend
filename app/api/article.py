@@ -167,7 +167,7 @@ def add_article():
     
     db.session.add(haowen)
     db.session.commit()
-    return ResMsg(data='文章添加成功！').data
+    return ResMsg(message='文章添加成功！').data
 
 @route(bp, '/article/edit', methods=['POST'])
 def edit_article():
@@ -183,7 +183,7 @@ def edit_article():
     
     haowen.houtai_create_from_dict(data)
     db.session.commit()
-    return ResMsg(data='文章修改成功！').data
+    return ResMsg(message='文章修改成功！').data
 
 @route(bp, '/article/list/', methods=['POST'])
 def get_articles():
@@ -226,7 +226,7 @@ def delete_article():
     # db.session.delete(haowen)
     haowen.make_down()
     db.session.commit()
-    return ResMsg(data='文章下架成功！').data
+    return ResMsg(message='文章下架成功！').data
 
 @bp.route('/article/remove', methods=['POST'])
 # @token_auth.login_required
@@ -246,7 +246,7 @@ def restored_article():
     haowen = Haowen.query.get_or_404(id)
     haowen.make_restored()
     db.session.commit()
-    return ResMsg(data='文章恢复成功！').data
+    return ResMsg(message='文章恢复成功！').data
 
 
 

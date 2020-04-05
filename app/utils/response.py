@@ -8,7 +8,7 @@ class ResMsg(object):
     封装响应文本
     """
 
-    def __init__(self, data=None, code=ResponseCode.Success, rq=request, status='success'):
+    def __init__(self, data=None, code=ResponseCode.Success, rq=request, status='success', message=None):
         # 获取请求中语言选择,默认为中文
         self.lang = rq.headers.get("lang",
                                    current_app.config.get("LANG", "zh_CN")
@@ -17,8 +17,9 @@ class ResMsg(object):
         self._msg = current_app.config[self.lang].get(code, None)
         self._code = code
         self._status = status
+        self._message = message
 
-    def update(self, code=None, data=None, msg=None, status=None):
+    def update(self, code=None, data=None, msg=None, status=None, message=None):
         """
         更新默认响应文本
         :param code:响应编码
@@ -36,6 +37,8 @@ class ResMsg(object):
             self._msg = msg
         if status is not None:
             self._status = status
+        if message is not None:
+            self._message = message
 
     def add_field(self, name=None, value=None):
         """
@@ -58,4 +61,5 @@ class ResMsg(object):
         body["msg"] = body.pop("_msg")
         body["code"] = body.pop("_code")
         body["status"] = body.pop("_status")
+        body["message"] = body.pop("_message")
         return body
