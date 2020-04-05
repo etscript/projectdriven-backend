@@ -189,7 +189,8 @@ def edit_article():
 def get_articles():
     '''返回文章集合，分页'''
     data = request.get_json()
-    page = request.args.get('page', 1, type=int)
+    # page = request.args.get('page', 1, type=int)
+    page = data['page']
     per_page = min(
         request.args.get(
             'per_page', current_app.config['POSTS_PER_PAGE'], type=int), 100)
