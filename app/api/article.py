@@ -202,17 +202,17 @@ def get_articles():
         data = Haowen.to_web_dict(haowen, page, per_page,'article.get_articles')
     
     ret = {
-            "current_page": 1,
+            "current_page": data["_meta"]["page"],
             "first_page_url": "http://api.golang365.com/api/v2/article/list?page=1",
             "from": 1,
-            "last_page": 9,
+            "last_page": data["_meta"]["total_pages"],
             "last_page_url": "http://api.golang365.com/api/v2/article/list?page=9",
             "next_page_url": "http://api.golang365.com/api/v2/article/list?page=2",
             "path": "http://api.golang365.com/api/v2/article/list",
             "per_page": 10,
             "prev_page_url": None,
             "to": 10,
-            "total": 88}
+            "total": data["_meta"]["total_items"]}
     ret["data"] = data["items"]
 
     return ResMsg(data=ret).data
