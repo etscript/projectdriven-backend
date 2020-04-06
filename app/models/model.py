@@ -283,8 +283,7 @@ class Haowen(SearchableMixin, PaginatedAPIMixin, db.Model):
                 "article_channel_id" : self.article_channel_id,
                 "article_channel_name" : self.article_channel_name,
                 "article_recommend" : self.article_recommend,
-                "article_love_count" : self.article_love_count,
-                "top" : self.top 
+                "article_love_count" : self.article_love_count
             }
         else:
             data = {}
@@ -325,7 +324,8 @@ class Haowen(SearchableMixin, PaginatedAPIMixin, db.Model):
                 "view_count": 9,
                 "tags": ["postman"],
                 "comment": 1,
-                "commentCount": 2
+                "commentCount": 2,
+                "top" : self.top 
             })
         if web:
             data.update({'content': self.content})
