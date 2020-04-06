@@ -228,6 +228,7 @@ class Haowen(SearchableMixin, PaginatedAPIMixin, db.Model):
     down = db.Column(db.Integer, default=False, index=True)
     deleted_at = db.Column(db.DateTime, index=True)
     created_at = db.Column(db.DateTime, index=True)
+    top = db.Column(db.Integer, default=False, index=True)
 
 
     # haowen list 添加字段
@@ -349,6 +350,12 @@ class Haowen(SearchableMixin, PaginatedAPIMixin, db.Model):
     def make_restored(self):
         self.down = False
         self.deleted_at = None
+    
+    def make_top(self):
+        self.top = True
+
+    def make_untop(self):
+        self.top = False
 
     def houtai_create_from_dict(self, data):
         for field in ['article_comment', 'article_pic', 'article_format_date', \

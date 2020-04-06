@@ -249,6 +249,28 @@ def restored_article():
     db.session.commit()
     return ResMsg(message='文章恢复成功！').data
 
+@route(bp, '/article/top', methods=['POST'])
+# @token_auth.login_required
+def top_article():
+    '''置顶一篇文章'''
+    id = request.get_json()["id"]
+    haowen = Haowen.query.get_or_404(id)
+    # db.session.delete(haowen)
+    haowen.make_top()
+    db.session.commit()
+    return ResMsg(message='文章置顶成功！').data
+
+@route(bp, '/article/delete', methods=['POST'])
+# @token_auth.login_required
+def untop_article():
+    '''取消置顶一篇文章'''
+    id = request.get_json()["id"]
+    haowen = Haowen.query.get_or_404(id)
+    # db.session.delete(haowen)
+    haowen.make_untop()
+    db.session.commit()
+    return ResMsg(message='文章取消置顶成功！').data
+
 
 
 
