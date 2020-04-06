@@ -283,7 +283,8 @@ class Haowen(SearchableMixin, PaginatedAPIMixin, db.Model):
                 "article_channel_id" : self.article_channel_id,
                 "article_channel_name" : self.article_channel_name,
                 "article_recommend" : self.article_recommend,
-                "article_love_count" : self.article_love_count  
+                "article_love_count" : self.article_love_count,
+                "top" : self.top 
             }
         else:
             data = {}
