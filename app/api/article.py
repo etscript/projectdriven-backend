@@ -195,7 +195,7 @@ def get_articles():
         request.args.get(
             'per_page', current_app.config['POSTS_PER_PAGE'], type=int), 100)
     # Haowen.query.order_by(Haowen.timestamp.desc()).filter(Haowen.down==True)
-    haowen = Haowen.query.order_by(Haowen.timestamp.desc())
+    haowen = Haowen.query.order_by(Haowen.top.desc(),Haowen.timestamp.desc())
     if not data.get('all'):
         data = Haowen.to_web_dict(haowen.filter(Haowen.down==False), \
             page, per_page,'article.get_articles')
@@ -260,7 +260,7 @@ def top_article():
     db.session.commit()
     return ResMsg(message='文章置顶成功！').data
 
-@route(bp, '/article/delete', methods=['POST'])
+@route(bp, '/article/uptop', methods=['POST'])
 # @token_auth.login_required
 def untop_article():
     '''取消置顶一篇文章'''
