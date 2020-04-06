@@ -260,7 +260,7 @@ def top_article():
     db.session.commit()
     return ResMsg(message='文章置顶成功！').data
 
-@route(bp, '/article/uptop', methods=['POST'])
+@route(bp, '/article/untop', methods=['POST'])
 # @token_auth.login_required
 def untop_article():
     '''取消置顶一篇文章'''
