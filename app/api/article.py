@@ -229,7 +229,7 @@ def delete_article():
     db.session.commit()
     return ResMsg(message='文章下架成功！').data
 
-@bp.route('/article/remove', methods=['POST'])
+@route(bp, '/article/remove', methods=['POST'])
 # @token_auth.login_required
 def remove_article():
     '''删除一篇文章'''
