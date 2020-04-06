@@ -210,9 +210,9 @@ def get_articles():
             "last_page_url": "http://api.golang365.com/api/v2/article/list?page=9",
             "next_page_url": "http://api.golang365.com/api/v2/article/list?page=2",
             "path": "http://api.golang365.com/api/v2/article/list",
-            "per_page": 10,
+            "per_page": 6,
             "prev_page_url": None,
-            "to": 10,
+            "to": 6,
             "total": data["_meta"]["total_items"]}
     ret["data"] = data["items"]
 
@@ -229,7 +229,7 @@ def delete_article():
     db.session.commit()
     return ResMsg(message='文章下架成功！').data
 
-@route(bp, '/article/remove', methods=['POST'])
+@route(bp,'/article/remove', methods=['POST'])
 # @token_auth.login_required
 def remove_article():
     '''删除一篇文章'''
