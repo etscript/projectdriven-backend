@@ -228,7 +228,7 @@ class Haowen(SearchableMixin, PaginatedAPIMixin, db.Model):
     down = db.Column(db.Integer, default=False, index=True)
     deleted_at = db.Column(db.DateTime, index=True)
     created_at = db.Column(db.DateTime, index=True)
-    top = db.Column(db.Integer, default=False, index=True)
+    top = db.Column(db.Integer, default=0, index=True)
 
 
     # haowen list 添加字段
